@@ -15,6 +15,18 @@ test_that("sap_yield follows species-specific linear rules", {
   expect_equal(out[1], hm_expected, tolerance = 1e-6)
 })
 
+test_that("sap_yield is 0 for trees under minimum tapping diameter", {
+  dbh <- c(7, 9)
+  spp <- c("hard maple", "hard maple")
+
+  out <- sap_yield(dbh, spp, min_dbh = 8)
+
+  # 1. larger tree returns positive volume
+  expect_gt(out[2], 0)
+  # 2. small tree returns 0
+  expect_equal(out[1], 0)
+})
+
 test_that("sugar_content returns expected Brix values", {
   dbh <- c(12, 12, 12)
   spp <- c("hard maple", "red maple", "fir")

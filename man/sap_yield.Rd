@@ -4,12 +4,15 @@
 \alias{sap_yield}
 \title{Maple sap yield}
 \usage{
-sap_yield(dbh, spp)
+sap_yield(dbh, spp, min_dbh = 10)
 }
 \arguments{
 \item{dbh}{numeric vector of trees' diameters at breast height (inches)}
 
 \item{spp}{character vector of trees' species}
+
+\item{min_dbh}{minimum diameter (inches) at which trees may be tapped.
+Defaults to 10. 0 will allow tapping of any tree.}
 }
 \value{
 vector of sap volumes (gallons) for each tree
@@ -18,5 +21,6 @@ vector of sap volumes (gallons) for each tree
 gallons sap produced per season for individual trees
 }
 \references{
-after Rademacher et al 2023, but simplified as a linear relationship
+after Rademacher et al 2023, but simplified as a linear
+  relationship
 }
